@@ -6,32 +6,24 @@
         </h1>
     </div>
 </header>
-<form class="w-full max-w-lg mx-auto mt-10">
+<form
+    action="{{ route('register') }}"
+    method="post"
+    class="w-full max-w-lg mx-auto mt-10"
+>
+    @csrf
     <div class="flex flex-wrap -mx-3 mb-6">
-        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+        <div class="w-full px-3">
             <label
                 class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="grid-first-name"
+                for="name"
+                name="name"
             >
-                First Name
-            </label>
-            <input
-                class="appearance-none block w-full bg-gray-200 text-gray-700 borderrounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                id="grid-first-name"
-                type="text"
-                placeholder="Jane"
-            />
-        </div>
-        <div class="w-full md:w-1/2 px-3">
-            <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="grid-last-name"
-            >
-                Last Name
+                User Name
             </label>
             <input
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-last-name"
+                id="name"
                 type="text"
                 placeholder="Doe"
             />
@@ -41,14 +33,15 @@
         <div class="w-full px-3">
             <label
                 class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="user-name"
+                for="email"
+                name="email"
             >
-                User Name
+                User Mail
             </label>
             <input
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="user-name"
-                type="text"
+                id="email"
+                type="email"
                 placeholder="info@gmail.com"
             />
         </div>
@@ -57,17 +50,57 @@
         <div class="w-full px-3">
             <label
                 class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="grid-password"
+                for="password"
+                name="password"
             >
                 Password
             </label>
             <input
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-password"
+                id="password"
                 type="password"
                 placeholder="******************"
             />
         </div>
     </div>
+    <div class="flex flex-wrap -mx-3 mb-6">
+        <div class="w-full px-3">
+            <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                for="checkPassword"
+                name="checkPassword"
+            >
+                Repeat Your Password
+            </label>
+            <input
+                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                id="checkPassword"
+                type="password"
+                placeholder="******************"
+            />
+        </div>
+    </div>
+    <button
+        type="submit"
+        class="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+    >
+        <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+            <!-- Heroicon name: mini/lock-closed -->
+            <svg
+                class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+            >
+                <path
+                    fill-rule="evenodd"
+                    d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z"
+                    clip-rule="evenodd"
+                />
+            </svg>
+        </span>
+        Sign up
+    </button>
 </form>
 @endsection
