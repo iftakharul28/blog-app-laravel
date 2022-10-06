@@ -7,7 +7,7 @@
         <title>Blog App</title>
         @vite('resources/css/app.css')
     </head>
-    <body>
+    <body class="dark:bg-gray-900">
         <nav class="bg-gray-800">
             <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
                 <div class="relative flex h-16 items-center justify-between">
@@ -88,14 +88,14 @@
                             <div class="flex space-x-4">
                                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                                 <a
-                                    href="#"
+                                    href="/"
                                     class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
                                     aria-current="page"
                                     >Home</a
                                 >
 
                                 <a
-                                    href="#"
+                                    href="/dashboard"
                                     class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                                     >Dashboard</a
                                 >
@@ -170,6 +170,16 @@
                                 id="profile-menu"
                             >
                                 <!-- Active: "bg-gray-100", Not Active: "" -->
+
+                                @auth
+                                <a
+                                    href="#"
+                                    class="block px-4 py-2 text-sm text-gray-700"
+                                    role="menuitem"
+                                    tabindex="-1"
+                                    id="user-menu-item-0"
+                                    >Iftakharul Alam</a
+                                >
                                 <a
                                     href="#"
                                     class="block px-4 py-2 text-sm text-gray-700"
@@ -194,6 +204,25 @@
                                     id="user-menu-item-2"
                                     >Sign out</a
                                 >
+                                @endauth @guest
+                                <a
+                                    href="/register"
+                                    class="block px-4 py-2 text-sm text-gray-700"
+                                    role="menuitem"
+                                    tabindex="-1"
+                                    id="user-menu-item-2"
+                                    >Register</a
+                                >
+                                <a
+                                    href="#"
+                                    class="block px-4 py-2 text-sm text-gray-700"
+                                    role="menuitem"
+                                    tabindex="-1"
+                                    id="user-menu-item-2"
+                                    >Sign in</a
+                                >
+
+                                @endguest
                             </div>
                         </div>
                     </div>
@@ -203,7 +232,11 @@
             <!-- Mobile menu, show/hide based on menu state. -->
             <div class="sm:hidden hidden" id="mobile-menu">
                 <div class="space-y-1 px-2 pt-2 pb-3">
-                    <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                    <a
+                        href="#"
+                        class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                        >Home</a
+                    >
                     <a
                         href="#"
                         class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
@@ -214,19 +247,7 @@
                     <a
                         href="#"
                         class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                        >Team</a
-                    >
-
-                    <a
-                        href="#"
-                        class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                        >Projects</a
-                    >
-
-                    <a
-                        href="#"
-                        class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                        >Calendar</a
+                        >Posts</a
                     >
                 </div>
             </div>

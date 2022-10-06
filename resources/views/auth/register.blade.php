@@ -7,104 +7,154 @@
     </div>
 </header>
 <form
+    class="w-full max-w-xl mx-auto mt-10 h-0 bg-white dark:bg-gray-900"
     action="{{ route('register') }}"
     method="post"
-    class="w-full max-w-lg mx-auto mt-10"
 >
     @csrf
-    <div class="flex flex-wrap -mx-3 mb-6">
-        <div class="w-full px-3">
-            <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="name"
-                name="name"
-            >
-                User Name
-            </label>
+    <div class="grid md:grid-cols-2 md:gap-6">
+        <div class="relative z-0 mb-6 w-full group">
             <input
-                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="name"
-                name="name"
                 type="text"
-                placeholder="Doe"
+                name="name"
+                id="floating_first_name"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('name') dark:border-red-600 @enderror"
+                placeholder=" "
+                value="{{ old('name') }}"
             />
+            <label
+                for="floating_first_name"
+                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >Name</label
+            >
+            @error('name')
+            <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                <span class="font-medium">Oops!</span> {{ $message }}
+            </p>
+            @enderror
+        </div>
+        <div class="relative z-0 mb-6 w-full group">
+            <input
+                type="text"
+                name="username"
+                id="username"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('username') dark:border-red-600 @enderror"
+                placeholder=" "
+                value="{{ old('username') }}"
+            />
+            <label
+                for="username"
+                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >User name</label
+            >
+            @error('username')
+            <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                <span class="font-medium">Oops!</span> {{ $message }}
+            </p>
+            @enderror
         </div>
     </div>
-    <div class="flex flex-wrap -mx-3 mb-6">
-        <div class="w-full px-3">
-            <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="email"
-                name="email"
-            >
-                User Mail
-            </label>
-            <input
-                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="email"
-                name="email"
-                type="email"
-                placeholder="info@gmail.com"
-            />
-        </div>
+    <div class="relative z-0 mb-6 w-full group">
+        <input
+            type="email"
+            name="email"
+            id="email"
+            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('email') dark:border-red-600 @enderror"
+            placeholder=" "
+            value="{{ old('email') }}"
+        />
+        <label
+            for="email"
+            class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+            >Email address</label
+        >
+        @error('email')
+        <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+            <span class="font-medium">Oops!</span> {{ $message }}
+        </p>
+        @enderror
     </div>
-    <div class="flex flex-wrap -mx-3 mb-6">
-        <div class="w-full px-3">
-            <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="password"
-                name="password"
-            >
-                Password
-            </label>
-            <input
-                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="password"
-                name="password"
-                type="password"
-                placeholder="******************"
-            />
-        </div>
+    <div class="relative z-0 mb-6 w-full group">
+        <input
+            type="password"
+            name="password"
+            id="password"
+            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('password') dark:border-red-600 @enderror"
+            placeholder=" "
+        />
+        <label
+            for="password"
+            class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+            >Password</label
+        >
+        @error('password')
+        <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+            <span class="font-medium">Oops!</span> {{ $message }}
+        </p>
+        @enderror
     </div>
-    <div class="flex flex-wrap -mx-3 mb-6">
-        <div class="w-full px-3">
-            <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="checkPassword"
-                name="checkPassword"
-            >
-                Repeat Your Password
-            </label>
+    <div class="relative z-0 mb-6 w-full group">
+        <input
+            type="password"
+            name="password_confirmation"
+            id="password_confirmation"
+            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('password') dark:border-red-600 @enderror"
+            placeholder=" "
+            value=""
+        />
+        <label
+            for="password_confirmation"
+            class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+            >Confirm password</label
+        >
+        @error('password')
+        <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+            <span class="font-medium">Oops!</span> {{ $message }}
+        </p>
+        @enderror
+    </div>
+    <div class="grid md:grid-cols-2 md:gap-6">
+        <div class="relative z-0 mb-6 w-full group">
             <input
-                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="checkPassword"
-                name="checkPassword"
-                type="password"
-                placeholder="******************"
+                type="tel"
+                name="phone"
+                id="phone"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('password') dark:border-red-600 @enderror"
+                placeholder="
+                "
+                value="{{ old('phone') }}"
             />
+            <label
+                for="phone"
+                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >Phone number (+88013456-78902)</label
+            >
+            @error('phone')
+            <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                <span class="font-medium">Oops!</span> {{ $message }}
+            </p>
+            @enderror
+        </div>
+        <div class="relative z-0 mb-6 w-full group">
+            <input
+                type="text"
+                name="company"
+                id="company"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                placeholder=" "
+            />
+            <label
+                for="company"
+                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >Company (Ex. Google)</label
+            >
         </div>
     </div>
     <button
         type="submit"
-        class="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
     >
-        <span class="absolute inset-y-0 left-0 flex items-center pl-3">
-            <!-- Heroicon name: mini/lock-closed -->
-            <svg
-                class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
-            >
-                <path
-                    fill-rule="evenodd"
-                    d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z"
-                    clip-rule="evenodd"
-                />
-            </svg>
-        </span>
-        Sign up
+        Submit
     </button>
 </form>
 @endsection
