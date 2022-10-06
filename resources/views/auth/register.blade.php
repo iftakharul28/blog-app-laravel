@@ -24,6 +24,7 @@
             <input
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="name"
+                name="name"
                 type="text"
                 placeholder="Doe"
             />
@@ -41,6 +42,7 @@
             <input
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="email"
+                name="email"
                 type="email"
                 placeholder="info@gmail.com"
             />
@@ -58,6 +60,7 @@
             <input
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="password"
+                name="password"
                 type="password"
                 placeholder="******************"
             />
@@ -75,6 +78,7 @@
             <input
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="checkPassword"
+                name="checkPassword"
                 type="password"
                 placeholder="******************"
             />

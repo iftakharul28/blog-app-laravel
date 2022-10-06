@@ -19,6 +19,7 @@
                             type="button"
                             class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                             aria-controls="mobile-menu"
+                            id="mobile-icon"
                             aria-expanded="false"
                         >
                             <span class="sr-only">Open main menu</span>
@@ -134,23 +135,21 @@
                         </button>
 
                         <!-- Profile dropdown -->
-                        <div class="relative ml-3">
-                            <div>
-                                <button
-                                    type="button"
-                                    class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                                    id="user-menu-button"
-                                    aria-expanded="false"
-                                    aria-haspopup="true"
-                                >
-                                    <span class="sr-only">Open user menu</span>
-                                    <img
-                                        class="h-8 w-8 rounded-full"
-                                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                        alt=""
-                                    />
-                                </button>
-                            </div>
+                        <div class="relative ml-3" id="profile">
+                            <button
+                                type="button"
+                                class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                                id="user-menu-button"
+                                aria-expanded="false"
+                                aria-haspopup="true"
+                            >
+                                <span class="sr-only">Open user menu</span>
+                                <img
+                                    class="h-8 w-8 rounded-full"
+                                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                    alt=""
+                                />
+                            </button>
 
                             <!--
               Dropdown menu, show/hide based on menu state.
@@ -163,11 +162,12 @@
                 To: "transform opacity-0 scale-95"
             -->
                             <div
-                                class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
                                 role="menu"
                                 aria-orientation="vertical"
                                 aria-labelledby="user-menu-button"
                                 tabindex="-1"
+                                id="profile-menu"
                             >
                                 <!-- Active: "bg-gray-100", Not Active: "" -->
                                 <a
@@ -201,7 +201,7 @@
             </div>
 
             <!-- Mobile menu, show/hide based on menu state. -->
-            <div class="sm:hidden" id="mobile-menu">
+            <div class="sm:hidden hidden" id="mobile-menu">
                 <div class="space-y-1 px-2 pt-2 pb-3">
                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                     <a
@@ -233,4 +233,16 @@
         </nav>
         @yield('content')
     </body>
+    <script type="text/javascript">
+        const profile = document.querySelector("#profile");
+        const profileMenu = document.querySelector("#profile-menu");
+        const mobileIcon = document.querySelector("#mobile-icon");
+        const mobileMenu = document.querySelector("#mobile-menu");
+        profile.addEventListener("click", (e) => {
+            profileMenu.classList.toggle("hidden");
+        });
+        mobileIcon.addEventListener("click", (e) => {
+            mobileMenu.classList.toggle("hidden");
+        });
+    </script>
 </html>
