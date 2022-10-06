@@ -88,20 +88,20 @@
                             <div class="flex space-x-4">
                                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                                 <a
-                                    href="/"
+                                    href="{{ route('home') }}"
                                     class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
                                     aria-current="page"
                                     >Home</a
                                 >
 
                                 <a
-                                    href="/dashboard"
+                                    href="{{ route('dashboard') }}"
                                     class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                                     >Dashboard</a
                                 >
 
                                 <a
-                                    href="#"
+                                    href="{{ route('posts') }}"
                                     class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                                     >Posts</a
                                 >
@@ -197,16 +197,16 @@
                                     >Settings</a
                                 >
                                 <a
-                                    href="#"
+                                    href="{{ route('logout') }}"
                                     class="block px-4 py-2 text-sm text-gray-700"
                                     role="menuitem"
                                     tabindex="-1"
                                     id="user-menu-item-2"
-                                    >Sign out</a
+                                    >Log out</a
                                 >
                                 @endauth @guest
                                 <a
-                                    href="/register"
+                                    href="{{ route('register') }}"
                                     class="block px-4 py-2 text-sm text-gray-700"
                                     role="menuitem"
                                     tabindex="-1"
@@ -214,12 +214,12 @@
                                     >Register</a
                                 >
                                 <a
-                                    href="#"
+                                    href="{{ route('login') }}"
                                     class="block px-4 py-2 text-sm text-gray-700"
                                     role="menuitem"
                                     tabindex="-1"
                                     id="user-menu-item-2"
-                                    >Sign in</a
+                                    >Login</a
                                 >
 
                                 @endguest
