@@ -9,11 +9,17 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->middleware(['guest']);
+    }
+        
     public function index()
     {
         return view('auth.register');
     }
-
     public function store(Request $request)
     {
         // dd($request->username);
@@ -25,7 +31,6 @@ class RegisterController extends Controller
             'phone'=>'required|max:11',
             'company'=>'max:255'
         ]);
-        
         User::create([
             'name'=> $request->name,
             'username'=> $request->username,
@@ -34,11 +39,10 @@ class RegisterController extends Controller
             'phone'=> $request->phone,
             'company'=> $request->company,
         ]);
-
-
-        
+    
         auth()->attempt($request->only('email', 'password'));
 
         return redirect()->route('dashboard');
     }
+        
 }

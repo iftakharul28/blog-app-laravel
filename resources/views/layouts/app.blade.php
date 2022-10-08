@@ -7,7 +7,7 @@
         <title>Blog App</title>
         @vite('resources/css/app.css')
     </head>
-    <body class="dark:bg-gray-900">
+    <body class="bg-gray-800">
         <nav class="bg-gray-800">
             <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
                 <div class="relative flex h-16 items-center justify-between">
@@ -178,7 +178,7 @@
                                     role="menuitem"
                                     tabindex="-1"
                                     id="user-menu-item-0"
-                                    >Iftakharul Alam</a
+                                    >{{auth()->user()->name}}</a
                                 >
                                 <a
                                     href="#"
@@ -196,14 +196,23 @@
                                     id="user-menu-item-1"
                                     >Settings</a
                                 >
-                                <a
-                                    href="{{ route('logout') }}"
-                                    class="block px-4 py-2 text-sm text-gray-700"
-                                    role="menuitem"
-                                    tabindex="-1"
-                                    id="user-menu-item-2"
-                                    >Log out</a
+                                <form
+                                    action="{{ route('logout') }}"
+                                    method="post"
+                                    class="px-4 py-2"
                                 >
+                                    @csrf
+                                    <button
+                                        type="submit"
+                                        class="block text-sm text-gray-700"
+                                        role="menuitem"
+                                        tabindex="-1"
+                                        id="user-menu-item-2"
+                                    >
+                                        Log out
+                                    </button>
+                                </form>
+
                                 @endauth @guest
                                 <a
                                     href="{{ route('register') }}"
