@@ -6,6 +6,7 @@
         </h1>
     </div>
 </header>
+@auth
 <form
     class="w-full h-full max-w-xl mx-auto my-10 bg-white dark:bg-gray-800"
     action="{{ route('posts') }}"
@@ -33,7 +34,7 @@
         </p>
         @enderror
     </div>
-    <div class="relative z-0 mb-6 w-full group">
+    <div class="relative z-0 w-full group">
         <label
             for="body"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
@@ -60,7 +61,8 @@
         Submit
     </button>
 </form>
-<main class="container mx-auto">
+@endauth
+<main class="mt-6 container mx-auto">
     @if($posts->count())
     <div
         class="grid mb-8 rounded-lg border border-gray-200 shadow-sm dark:border-gray-700 md:mb-12 md:grid-cols-2"
